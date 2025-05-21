@@ -1,0 +1,27 @@
+//index.html에 작성 – 기존 index1.html의 body를 아래 내용으로 대체 
+
+<div class="nav">
+    <a class="logo">SMU</a>
+    <a>Page1</a>
+    <a>Page2</a>
+</div>
+
+===================
+
+//main.css에 작성
+
+	body {
+	  margin: 0;
+	}
+	.nav {
+	  display: flex;
+	  padding: 15px;
+	  align-items: center;
+	  background : white;
+	}
+	.nav a {
+	  margin-right: 10px;
+	}
+	.logo {
+	  font-weight: bold;
+	}

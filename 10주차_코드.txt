@@ -1,0 +1,56 @@
+//list.ejs 파일 -> 아래 코드 사용
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body class="grey-bg">
+
+    <div class="white-bg">
+      <div class="list-box">
+        <h4>글제목임</h4>
+        <p>글내용임</p>
+      </div>
+      <div class="list-box">
+        <h4>글제목임</h4>
+        <p>글내용임</p>
+      </div>
+    </div>
+  
+  </body>
+</html>
+
+
+
+===========================
+
+//main.css 파일 업데이트
+
+.grey-bg {
+  background: #eee;
+}
+.white-bg {
+  background: white;
+  margin: 20px;
+  border-radius: 5px;
+}
+.list-box {
+  padding : 10px;
+  border-bottom: 1px solid#eee;
+}
+.list-box h4{
+  font-size: 16px;
+  margin: 5px;
+}
+.list-box p {
+  font-size: 13px;
+  margin: 5px;
+  color: grey;
+}
+
+=============================
+

@@ -1,0 +1,36 @@
+//글 작성 기능 만들기
+//main.css 파일 업데이트 - 10주차 main.css 파일 하단에 추가
+
+input,div {
+  box-sizing: border-box;
+}
+.form-box {
+  background : white;
+  padding : 25px;
+  margin: 20px;
+  border-radius: 8px;
+}
+.form-box input {
+  padding : 10px;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.form-box button {
+  padding: 10px;
+  border : none;
+  background : lightgrey;
+  border-radius: 5px;
+}
+
+=============================
+//상세 페이지 만들기
+//main.css 파일 업데이트 - main.css 파일 하단에 추가
+.detail-bg {
+  background: white;
+  padding: 15px;
+  margin-top: 10px;
+}
+
