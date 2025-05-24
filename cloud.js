@@ -101,3 +101,33 @@ app.get("/list", async (req, res) => {
   let result = await db.collection("post2").find().toArray();
   res.render("list.ejs", { 문서목록: result });
 });
+
+// 글쓰기 페이지!
+app.get("/write", (req, res) => {
+  res.render("write.ejs");
+});
+
+// 글 전달 검사
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// add로 POST요청 시 안에 있는 코드 실행
+app.post("/add", async (req, res) => {
+  // console.log(req.body);
+  // // req.body : express에서 클라이언트가 서버로 보내는 http POST 요청의 body에 담긴 데이터를 서버에서 다루기 위한 객체.
+
+  try {
+    if (req.body.title === "") {
+      res.send("제목이 공백입니다요.");
+    } else {
+      await db
+        .collection("post2")
+        .insertOne({ title: req.body.title, content: req.body.content });
+      res.redirect("/list");
+    }
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("DB 에러 발생");
+  }
+});
