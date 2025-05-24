@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2025 FUKUOKA</title>
+    <link href="main.css" rel="stylesheet" />
+  </head>
+  <body class="grey-bg">
+    <!-- <%= JSON.stringify(문서목록) %> -->
+
+    <!-- html 중간에 object나 array를 그냥 넣지 말고, JSON.stringify() 안에 넣기 -->
+
+    <%- include("nav.ejs") %> <% for (var i = 0; i < 문서목록.length; i++){ %>
+    <div class="white-bg">
+      <div class="list-box">
+        <h4><%= 문서목록[i].title %></h4>
+        <p>글내용임</p>
+      </div>
+      <div class="list-box">
+        <h4>글제목임</h4>
+        <p>글내용임</p>
+      </div>
+    </div>
+
+    <% } %>
+  </body>
+</html>

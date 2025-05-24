@@ -25,9 +25,9 @@ new MongoClient(url)
     console.log("DB 연결 성공");
     db = client.db("forum1");
 
-    app.listen(8080, () => {
-      console.log("http://localhost:8080 에서 서버 실행중!!");
-    });
+    // app.listen(8080, () => {
+    //   console.log("http://localhost:8080 에서 서버 실행중!!");
+    // });
   })
   .catch((err) => {
     console.log("DB 연결 실패:", err);
@@ -80,10 +80,24 @@ app.get("/shop", (req, res) => {
   res.send("쇼핑 페이지입니다.");
 });
 
-// DB의 모든 게시물 가져오기
+// // DB의 모든 게시물 가져오기
+// app.get("/list", async (req, res) => {
+//   let result = await db.collection("post2").find().toArray();
+//   console.log(result);
+//   res.send("DB 게시물, 첫글 : " + result[0].title);
+//   //res.send(result[0].title);
+// });
+
+// ejs 세팅
+app.set("view engine", "ejs");
+
+// app.get("/list", (req, res) => {
+//   res.render("list.ejs");
+// });
+
+// ejs 파일로 데이터 전송
+
 app.get("/list", async (req, res) => {
   let result = await db.collection("post2").find().toArray();
-  console.log(result);
-  res.send("DB 게시물, 첫글 : " + result[0].title);
-  //res.send(result[0].title);
+  res.render("list.ejs", { 문서목록: result });
 });
