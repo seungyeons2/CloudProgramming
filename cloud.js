@@ -13,7 +13,7 @@ app.use(express.static(__dirname + "/public"));
 
 // MongoDB 연결
 
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 let db;
 const url =
@@ -129,5 +129,19 @@ app.post("/add", async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(500).send("DB 에러 발생");
+  }
+});
+
+
+app.get("/detail/:id", async (req, res) => {
+  try {
+    let result = await db.collection("post2").findOne({ _id: new ObjectId(req.params.id) });
+    if (result == null) {
+      res.status(400).send("그런 글 없음");
+    } else {
+      res.render("detail.ejs", { result: result });
+    }
+  } catch (e) {
+    res.send("잘못된 URL을 입력하였음.");
   }
 });
